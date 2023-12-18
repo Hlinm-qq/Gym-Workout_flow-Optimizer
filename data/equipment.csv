@@ -1,4 +1,4 @@
-id,equipment,number,capacity,body group,remark
+id,equipment,number,capacity,muscle_groups,remark
 0,treadmill,9,1,,
 1,rowing machine,4,1,,
 2,upright bike,2,1,,
