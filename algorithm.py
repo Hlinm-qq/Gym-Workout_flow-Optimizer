@@ -18,12 +18,10 @@ class Algorithm:
         self.target = userInput[0]
         self.willWait = userInput[1]
         self.tolerance = userInput[2]
-        self.state = [None for _ in range(len(self.target))] # initial state
-        self.stateSpace = list(combinations(self.equipmentStatus.equipment, len(self.target))) # ? can be 1, 2, 3, 4 ...
+        self.state = [] # initial state
 
         with open('data/muscle_dict_comple.json', 'r') as file:
             self.jsonData = json.load(file)
-        
 
     def aStar(self):
 
@@ -31,25 +29,24 @@ class Algorithm:
         possessCapacity = list(totalCapacity - self.equipmentStatus.status)
         cost = [min(times) if totalCapacity[i] == possessCapacity[i] else 0 for i, times in enumerate(self.equipmentStatus.usage_time)]
 
-        pQueue = queue.PriorityQueue()
+        fringe = queue.PriorityQueue()
+        visited = []
 
-        for state in self.stateSpace:
-            # add heuristic
-            pathCost = sum(cost[list(self.equipmentStatus.equipment).index(equip)] for equip in state)
-            pQueue.put((pathCost, state))
-
-        # algorithm
         while(True):
-            f, self.state = pQueue.get()
+            if not fringe.empty():
+                f, self.state = fringe.get()
 
             if self.isGoal():
-                break
+                break 
 
-            # visited.append(self.state)
-
-            # getNeigbors
-
-        print(f"Goal: {self.state}")
+            neighbors = self.getNeigbors()
+            for neighbor in neighbors:
+                if neighbor not in visited:
+                    visited.append(neighbor)
+                    pathCost = sum(cost[list(self.equipmentStatus.equipment).index(equip)] for equip in neighbor)
+                    fringe.put((pathCost, neighbor))
+                
+        print(f"Goal: {self.state, f}")
         
     def isGoal(self):
         indices = [list(self.equipmentStatus.equipment).index(equip) for equip in self.state]
@@ -64,6 +61,16 @@ class Algorithm:
             
         return True
 
+    def getNeigbors(self):
+        length = len(self.state) 
+        
+        if length == 0:
+            return [[equip] for equip in self.equipmentStatus.equipment]
+        else:
+            return [sorted(self.state[:length - 1] + [equip]) for equip in self.equipmentStatus.equipment if equip not in self.state] \
+                    +[sorted(self.state + [equip]) for equip in self.equipmentStatus.equipment if equip not in self.state] 
+
+            
     def getTargetMuscleGroup(muscleGroup, defaultSet=True):
         """The specific muscle group the user intends to train.
 
