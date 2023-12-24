@@ -7,19 +7,18 @@ def read_equipment_data():
     return df
 
 def get_user_input():
-    # Example: Ask the user what muscle group they want to focus on
     muscle_group = input("What muscle group do you want to focus on? ")
     return muscle_group
 
 def process_user_input(user_input, equipment_data):
     # Process the user input to filter/select equipment
-    # This is a placeholder function, implement logic as needed
+    # This is a placeholder function
     filtered_equipment = equipment_data[equipment_data['muscle_groups'].str.contains(user_input, na=False)]
     return filtered_equipment
 
 def apply_algorithm(filtered_equipment):
     # Use the Algorithm class or any other logic to process the filtered equipment
-    # Placeholder for algorithm application
+    # Placeholder for algorithm 
     algorithm = Algorithm()
     # Example method call, replace with actual methods and logic
     result = algorithm.method(filtered_equipment)
