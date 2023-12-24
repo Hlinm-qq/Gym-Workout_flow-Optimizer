@@ -1,0 +1,1029 @@
+{
+  "equipment": [
+    {
+      "name": "Treadmill",
+      "exercises": [
+        {
+          "name": "Running",
+          "description": "Utilize the treadmill for jogging or running exercises."
+        },
+        {
+          "name": "Walking",
+          "description": "Perform brisk walking routines on the treadmill."
+        },
+        {
+          "name": "Incline Training",
+          "description": "Engage in uphill or incline training sessions."
+        },
+        {
+          "name": "Sprints",
+          "description": "Perform high-intensity interval sprints on the treadmill."
+        },
+        {
+          "name": "Endurance Training",
+          "description": "Long-distance or endurance training on the treadmill."
+        }
+      ]
+    },
+    {
+      "name": "Rowing Machine",
+      "exercises": [
+        {
+          "name": "Rowing",
+          "description": "Standard rowing exercises using the rowing machine."
+        },
+        {
+          "name": "Rowing Intervals",
+          "description": "Interval training with variations in speed and intensity."
+        },
+        {
+          "name": "Leg Press",
+          "description": "Utilize the rowing machine for leg press exercises."
+        },
+        {
+          "name": "Back Exercises",
+          "description": "Perform back strengthening exercises with the rowing machine."
+        },
+        {
+          "name": "Full-Body Workout",
+          "description": "Utilize the rowing machine for a complete body workout."
+        }
+      ]
+    },
+    {
+      "name": "Upright Bike",
+      "exercises": [
+        {
+          "name": "Cardio Cycling",
+          "description": "Pedal at various intensities for cardio workouts."
+        },
+        {
+          "name": "Interval Training",
+          "description": "Alternate between high and low-intensity cycling."
+        },
+        {
+          "name": "Hill Climbs",
+          "description": "Simulate uphill climbs with increased resistance."
+        },
+        {
+          "name": "Sprints",
+          "description": "Perform high-intensity sprints on the upright bike."
+        },
+        {
+          "name": "Endurance Cycling",
+          "description": "Engage in long-duration cycling sessions."
+        }
+      ]
+    },
+    {
+      "name": "Elliptical Machine",
+      "exercises": [
+        {
+          "name": "Forward Stride",
+          "description": "Perform forward motion elliptical exercises."
+        },
+        {
+          "name": "Reverse Stride",
+          "description": "Engage in reverse motion elliptical exercises."
+        },
+        {
+          "name": "Cross Trainer",
+          "description": "Utilize handles for a full-body cross-training workout."
+        },
+        {
+          "name": "Hill Climbs",
+          "description": "Adjust resistance for simulated hill climb workouts."
+        },
+        {
+          "name": "Interval Training",
+          "description": "Vary intensity for interval-based elliptical workouts."
+        }
+      ]
+    },
+    {
+      "name": "Bench",
+      "exercises": [
+        {
+          "name": "Bench Press",
+          "description": "Perform chest presses using the bench."
+        },
+        {
+          "name": "Dumbbell Flyes",
+          "description": "Perform flyes to work chest muscles."
+        },
+        {
+          "name": "Incline Bench Press",
+          "description": "Perform bench presses at an inclined angle."
+        },
+        {
+          "name": "Seated Shoulder Press",
+          "description": "Use bench for seated shoulder press exercises."
+        },
+        {
+          "name": "Tricep Dips",
+          "description": "Use bench for tricep dips to target triceps."
+        }
+      ]
+    },
+    {
+      "name": "Squat Machine",
+      "exercises": [
+        {
+          "name": "Squat Press",
+          "description": "Perform squatting exercises using the machine."
+        },
+        {
+          "name": "Leg Extension",
+          "description": "Use the machine for leg extension workouts."
+        },
+        {
+          "name": "Calf Raises",
+          "description": "Perform calf raise exercises with the machine."
+        },
+        {
+          "name": "Leg Press",
+          "description": "Perform leg presses using the machine."
+        },
+        {
+          "name": "Glute Exercises",
+          "description": "Engage in glute-focused exercises with the machine."
+        }
+      ]
+    },
+    {
+      "name": "Leg Press and Hack Squat Machine",
+      "exercises": [
+        {
+          "name": "Leg Press",
+          "description": "Perform leg presses using the machine."
+        },
+        {
+          "name": "Hack Squat",
+          "description": "Perform hack squat exercises with the machine."
+        },
+        {
+          "name": "Calf Raises",
+          "description": "Utilize the machine for standing calf raise exercises."
+        },
+        {
+          "name": "Leg Extension",
+          "description": "Perform leg extension exercises with the machine."
+        },
+        {
+          "name": "Glute Exercises",
+          "description": "Engage in glute-focused exercises with the machine."
+        }
+      ]
+    },
+    {
+      "name": "Standing Calf",
+      "exercises": [
+        {
+          "name": "Standing Calf Raise",
+          "description": "Perform calf raise exercises in a standing position."
+        },
+        {
+          "name": "Weighted Calf Raises",
+          "description": "Use weights to enhance standing calf raise exercises."
+        },
+        {
+          "name": "Toe Raises",
+          "description": "Engage in toe raise exercises for calf muscles."
+        },
+        {
+          "name": "Calf Stretches",
+          "description": "Perform stretching exercises to stretch calf muscles."
+        },
+        {
+          "name": "Balance Exercises",
+          "description": "Incorporate balance exercises to work calf muscles."
+        }
+      ]
+    },
+    {
+      "name": "Abdominal Machine",
+      "exercises": [
+        {
+          "name": "Crunches",
+          "description": "Utilize the abdominal machine for core-focused crunches."
+        },
+        {
+          "name": "Leg Raises",
+          "description": "Engage in leg raise exercises targeting the core."
+        },
+        {
+          "name": "Oblique Twists",
+          "description": "Perform oblique-focused twists using the machine."
+        },
+        {
+          "name": "Torso Rotation",
+          "description": "Use the machine for torso rotation exercises."
+        },
+        {
+          "name": "Reverse Crunches",
+          "description": "Perform reverse crunch exercises with the machine."
+        }
+      ]
+    },
+    {
+      "name": "Spin Machine",
+      "exercises": [
+        {
+          "name": "Spinning",
+          "description": "Engage in cycling workouts using the spin machine."
+        },
+        {
+          "name": "Interval Training",
+          "description": "Perform interval-based cycling routines."
+        },
+        {
+          "name": "Sprints",
+          "description": "High-intensity sprints on the spin machine."
+        },
+        {
+          "name": "Hill Climbs",
+          "description": "Simulate hill climb workouts with the spin machine."
+        },
+        {
+          "name": "Endurance Cycling",
+          "description": "Long-distance or endurance training on the spin machine."
+        }
+      ]
+    },
+    {
+      "name": "Biceps Curl",
+      "exercises": [
+        {
+          "name": "Biceps Curls",
+          "description": "Perform biceps curl exercises with the machine."
+        },
+        {
+          "name": "Hammer Curls",
+          "description": "Engage in hammer curl workouts targeting biceps."
+        },
+        {
+          "name": "Concentration Curls",
+          "description": "Use the machine for concentration curl exercises."
+        },
+        {
+          "name": "Preacher Curls",
+          "description": "Perform preacher curl exercises with the machine."
+        },
+        {
+          "name": "Isolation Curls",
+          "description": "Focus on isolation curls for biceps."
+        }
+      ]
+    },
+    {
+      "name": "Rear Delt/Pec Fly",
+      "exercises": [
+        {
+          "name": "Rear Deltoid Fly",
+          "description": "Target rear deltoid muscles using the machine."
+        },
+        {
+          "name": "Pec Fly",
+          "description": "Engage in pec fly exercises for chest muscles."
+        },
+        {
+          "name": "Reverse Pec Deck",
+          "description": "Perform reverse pec deck exercises."
+        },
+        {
+          "name": "Seated Chest Press",
+          "description": "Use machine for seated chest press workouts."
+        },
+        {
+          "name": "Fly/Reverse Fly Combo",
+          "description": "Combined exercises for rear delt and pec fly."
+        }
+      ]
+    },
+    {
+      "name": "Multi Press Machine",
+      "exercises": [
+        {
+          "name": "Chest Press",
+          "description": "Perform chest press exercises using the machine."
+        },
+        {
+          "name": "Shoulder Press",
+          "description": "Engage in shoulder press workouts."
+        },
+        {
+          "name": "Incline Press",
+          "description": "Utilize the machine for incline press exercises."
+        },
+        {
+          "name": "Decline Press",
+          "description": "Perform decline press exercises using the machine."
+        },
+        {
+          "name": "Close Grip Bench Press",
+          "description": "Focus on close grip bench press workouts."
+        }
+      ]
+    },
+    {
+      "name": "Inner/Outer Thigh",
+      "exercises": [
+        {
+          "name": "Inner Thigh Adduction",
+          "description": "Target inner thigh muscles using the machine."
+        },
+        {
+          "name": "Outer Thigh Abduction",
+          "description": "Engage in outer thigh abduction exercises."
+        },
+        {
+          "name": "Leg Lifts",
+          "description": "Perform leg lift exercises targeting inner and outer thighs."
+        },
+        {
+          "name": "Thigh Squeezes",
+          "description": "Utilize the machine for thigh squeezing workouts."
+        },
+        {
+          "name": "Hip Extension",
+          "description": "Work on hip extension exercises with the machine."
+        }
+      ]
+    },
+    {
+      "name": "Leg Press/Calf Extension",
+      "exercises": [
+        {
+          "name": "Leg Press",
+          "description": "Perform leg press exercises using the machine."
+        },
+        {
+          "name": "Calf Raises",
+          "description": "Engage in calf raise exercises using the machine."
+        },
+        {
+          "name": "Seated Calf Raises",
+          "description": "Utilize the machine for seated calf raise workouts."
+        },
+        {
+          "name": "Leg Extension",
+          "description": "Perform leg extension exercises using the machine."
+        },
+        {
+          "name": "Hack Squat",
+          "description": "Use the machine for hack squat exercises."
+        }
+      ]
+    },
+    {
+      "name": "Lying Leg Curl",
+      "exercises": [
+        {
+          "name": "Lying Leg Curls",
+          "description": "Perform leg curl exercises on the machine."
+        },
+        {
+          "name": "Hamstring Curls",
+          "description": "Engage in hamstring curl workouts."
+        },
+        {
+          "name": "Leg Curl Variations",
+          "description": "Utilize machine for various leg curl variations."
+        },
+        {
+          "name": "Single-Leg Curls",
+          "description": "Perform single-leg curl exercises."
+        },
+        {
+          "name": "Seated Leg Curls",
+          "description": "Perform seated leg curl workouts."
+        }
+      ]
+    },
+    {
+      "name": "Pulldown/Seated Row",
+      "exercises": [
+        {
+          "name": "Lat Pulldowns",
+          "description": "Perform lat pulldown exercises."
+        },
+        {
+          "name": "Seated Rows",
+          "description": "Engage in seated row workouts."
+        },
+        {
+          "name": "Reverse Grip Pulldowns",
+          "description": "Utilize machine for reverse grip pulldowns."
+        },
+        {
+          "name": "Close Grip Pulldowns",
+          "description": "Perform close grip pulldown exercises."
+        },
+        {
+          "name": "Cable Rows",
+          "description": "Engage in cable row workouts."
+        }
+      ]
+    },
+    {
+      "name": "Functional Trainer",
+      "exercises": [
+        {
+          "name": "Cable Exercises",
+          "description": "Perform various cable-based exercises."
+        },
+        {
+          "name": "Functional Movements",
+          "description": "Engage in functional movements with the trainer."
+        },
+        {
+          "name": "Rotational Exercises",
+          "description": "Utilize the trainer for rotational exercises."
+        },
+        {
+          "name": "Chest Flyes",
+          "description": "Perform chest fly exercises."
+        },
+        {
+          "name": "Tricep Pushdowns",
+          "description": "Engage in tricep pushdown exercises."
+        }
+      ]
+    },
+    {
+      "name": "Olympic Bench",
+      "exercises": [
+        {
+          "name": "Bench Press",
+          "description": "Perform bench press exercises."
+        },
+        {
+          "name": "Incline Bench Press",
+          "description": "Engage in incline bench press workouts."
+        },
+        {
+          "name": "Decline Bench Press",
+          "description": "Utilize the bench for decline bench press exercises."
+        },
+        {
+          "name": "Chest Flyes",
+          "description": "Perform chest fly exercises on the bench."
+        },
+        {
+          "name": "Shoulder Press",
+          "description": "Engage in shoulder press exercises using the bench."
+        }
+      ]
+    },
+    {
+      "name": "Preacher Curl Slate",
+      "exercises": [
+        {
+          "name": "Preacher Curls",
+          "description": "Perform preacher curl exercises."
+        },
+        {
+          "name": "Hammer Curls",
+          "description": "Engage in hammer curl workouts."
+        },
+        {
+          "name": "Concentration Curls",
+          "description": "Utilize the slate for concentration curls."
+        },
+        {
+          "name": "Isolation Curls",
+          "description": "Perform isolation curl exercises."
+        },
+        {
+          "name": "Reverse Curls",
+          "description": "Engage in reverse curl workouts."
+        }
+      ]
+    },
+    {
+      "name": "Leg Extension",
+      "exercises": [
+        {
+          "name": "Leg Extensions",
+          "description": "Perform leg extension exercises."
+        },
+        {
+          "name": "Single-Leg Extensions",
+          "description": "Engage in single-leg extension workouts."
+        },
+        {
+          "name": "Quad Isolation",
+          "description": "Utilize machine for quad isolation exercises."
+        },
+        {
+          "name": "Leg Press Variations",
+          "description": "Perform various leg press variations."
+        },
+        {
+          "name": "Knee Extension Exercises",
+          "description": "Engage in knee extension exercises."
+        }
+      ]
+    },
+    {
+      "name": "Leg Curl",
+      "exercises": [
+        {
+          "name": "Leg Curls",
+          "description": "Perform leg curl exercises."
+        },
+        {
+          "name": "Single-Leg Curls",
+          "description": "Engage in single-leg curl workouts."
+        },
+        {
+          "name": "Seated Leg Curls",
+          "description": "Utilize machine for seated leg curls."
+        },
+        {
+          "name": "Hamstring Isolation",
+          "description": "Perform hamstring isolation exercises."
+        },
+        {
+          "name": "Knee Flexion Exercises",
+          "description": "Engage in knee flexion exercises."
+        }
+      ]
+    },
+    {
+      "name": "Rotary Torso",
+      "exercises": [
+        {
+          "name": "Torso Rotations",
+          "description": "Perform rotary torso exercises on the machine."
+        },
+        {
+          "name": "Oblique Twists",
+          "description": "Engage in oblique-focused twists."
+        },
+        {
+          "name": "Core Strengthening",
+          "description": "Utilize the machine for core strengthening workouts."
+        },
+        {
+          "name": "Abdominal Twist",
+          "description": "Perform abdominal twists using the machine."
+        },
+        {
+          "name": "Torso Flexibility",
+          "description": "Work on torso flexibility exercises."
+        }
+      ]
+    },
+    {
+      "name": "Triceps Extension",
+      "exercises": [
+        {
+          "name": "Triceps Extensions",
+          "description": "Perform triceps extension exercises."
+        },
+        {
+          "name": "Overhead Triceps Extension",
+          "description": "Engage in overhead triceps extension workouts."
+        },
+        {
+          "name": "Rope Triceps Pushdowns",
+          "description": "Utilize machine for rope triceps pushdowns."
+        },
+        {
+          "name": "Triceps Kickbacks",
+          "description": "Perform triceps kickback exercises."
+        },
+        {
+          "name": "Close Grip Bench Press",
+          "description": "Engage in close grip bench press exercises."
+        }
+      ]
+    },
+    {
+      "name": "Lateral Raise",
+      "exercises": [
+        {
+          "name": "Lateral Raises",
+          "description": "Perform lateral raise exercises."
+        },
+        {
+          "name": "Front Raises",
+          "description": "Engage in front raise workouts."
+        },
+        {
+          "name": "Shoulder Isolation",
+          "description": "Utilize the machine for shoulder isolation exercises."
+        },
+        {
+          "name": "Shoulder Mobility",
+          "description": "Work on shoulder mobility exercises."
+        },
+        {
+          "name": "Deltoid Strengthening",
+          "description": "Perform exercises to strengthen deltoid muscles."
+        }
+      ]
+    },
+    {
+      "name": "Lat Pulldown",
+      "exercises": [
+        {
+          "name": "Lat Pulldowns",
+          "description": "Perform lat pulldown exercises."
+        },
+        {
+          "name": "Reverse Grip Pulldowns",
+          "description": "Engage in reverse grip pulldown workouts."
+        },
+        {
+          "name": "Close Grip Pulldowns",
+          "description": "Utilize the machine for close grip pulldowns."
+        },
+        {
+          "name": "Wide Grip Pulldowns",
+          "description": "Perform wide grip pulldown exercises."
+        },
+        {
+          "name": "Cable Rows",
+          "description": "Engage in cable row workouts."
+        }
+      ]
+    },
+    {
+      "name": "Shoulder Press",
+      "exercises": [
+        {
+          "name": "Shoulder Press",
+          "description": "Perform shoulder press exercises."
+        },
+        {
+          "name": "Seated Shoulder Press",
+          "description": "Engage in seated shoulder press workouts."
+        },
+        {
+          "name": "Military Press",
+          "description": "Utilize the machine for military press exercises."
+        },
+        {
+          "name": "Arnold Press",
+          "description": "Perform Arnold press exercises."
+        },
+        {
+          "name": "Dumbbell Shoulder Press",
+          "description": "Engage in dumbbell shoulder press exercises."
+        }
+      ]
+    },
+    {
+      "name": "Booty Builder 7",
+      "exercises": [
+        {
+          "name": "Glute Exercises",
+          "description": "Perform glute-focused exercises."
+        },
+        {
+          "name": "Hip Thrusts",
+          "description": "Engage in hip thrust workouts."
+        },
+        {
+          "name": "Leg Press Variations",
+          "description": "Utilize the machine for leg press variations."
+        },
+        {
+          "name": "Squatting Movements",
+          "description": "Perform squatting movements using the machine."
+        },
+        {
+          "name": "Hip Abduction/Adduction",
+          "description": "Work on hip abduction and adduction exercises."
+        }
+      ]
+    },
+    {
+      "name": "Multi-Purpose Squat Rack",
+      "exercises": [
+        {
+          "name": "Squats",
+          "description": "Perform squats using the squat rack."
+        },
+        {
+          "name": "Deadlifts",
+          "description": "Engage in deadlift exercises."
+        },
+        {
+          "name": "Overhead Press",
+          "description": "Utilize the rack for overhead press workouts."
+        },
+        {
+          "name": "Pull-Ups/Chin-Ups",
+          "description": "Perform pull-ups or chin-ups using the rack."
+        },
+        {
+          "name": "Barbell Rows",
+          "description": "Engage in barbell row exercises."
+        }
+      ]
+    },
+    {
+      "name": "Large Dumbbell Rack",
+      "exercises": [
+        {
+          "name": "Dumbbell Exercises",
+          "description": "Perform various exercises using dumbbells."
+        },
+        {
+          "name": "Dumbbell Press",
+          "description": "Engage in dumbbell press workouts."
+        },
+        {
+          "name": "Dumbbell Rows",
+          "description": "Utilize dumbbells for rowing exercises."
+        },
+        {
+          "name": "Dumbbell Curls",
+          "description": "Perform bicep curls using dumbbells."
+        },
+        {
+          "name": "Dumbbell Lunges",
+          "description": "Engage in lunges using dumbbells."
+        }
+      ]
+    },
+    {
+      "name": "Vertical Dumbbell Rack",
+      "exercises": [
+        {
+          "name": "Dumbbell Exercises",
+          "description": "Perform various exercises using dumbbells."
+        },
+        {
+          "name": "Dumbbell Press",
+          "description": "Engage in dumbbell press workouts."
+        },
+        {
+          "name": "Dumbbell Rows",
+          "description": "Utilize dumbbells for rowing exercises."
+        },
+        {
+          "name": "Dumbbell Curls",
+          "description": "Perform bicep curls using dumbbells."
+        },
+        {
+          "name": "Dumbbell Lunges",
+          "description": "Engage in lunges using dumbbells."
+        }
+      ]
+    },
+    {
+      "name": "Free Standing Space Saving Modular Rig",
+      "exercises": [
+        {
+          "name": "Pull-Ups/Chin-Ups",
+          "description": "Perform pull-ups or chin-ups using the rig."
+        },
+        {
+          "name": "Barbell Squats",
+          "description": "Engage in squats using the rig."
+        },
+        {
+          "name": "Suspension Training",
+          "description": "Utilize the rig for suspension-based workouts."
+        },
+        {
+          "name": "Leg Raises",
+          "description": "Perform leg raise exercises with the rig."
+        },
+        {
+          "name": "Dips",
+          "description": "Engage in dip exercises using the rig."
+        }
+      ]
+    },
+    {
+      "name": "Precor Multi Gym S3.45 - Upper Body",
+      "exercises": [
+        {
+          "name": "Chest Press",
+          "description": "Perform chest press exercises."
+        },
+        {
+          "name": "Shoulder Press",
+          "description": "Engage in shoulder press workouts."
+        },
+        {
+          "name": "Pec Deck",
+          "description": "Utilize the machine for pec deck exercises."
+        },
+        {
+          "name": "Lat Pulldowns",
+          "description": "Perform lat pulldown exercises."
+        },
+        {
+          "name": "Bicep Curls",
+          "description": "Engage in bicep curl exercises."
+        }
+      ]
+    },
+    {
+      "name": "Precor Multi Gym S3.45 - Lower Body",
+      "exercises": [
+        {
+          "name": "Leg Press",
+          "description": "Perform leg press exercises."
+        },
+        {
+          "name": "Hamstring Curls",
+          "description": "Engage in hamstring curl workouts."
+        },
+        {
+          "name": "Calf Raises",
+          "description": "Utilize the machine for calf raise exercises."
+        },
+        {
+          "name": "Leg Extensions",
+          "description": "Perform leg extension exercises."
+        },
+        {
+          "name": "Glute Exercises",
+          "description": "Engage in exercises targeting glute muscles."
+        }
+      ]
+    },
+    {
+      "name": "Precor Multi Gym S3.45 - Back and Core",
+      "exercises": [
+        {
+          "name": "Seated Rows",
+          "description": "Perform seated row exercises."
+        },
+        {
+          "name": "Back Extensions",
+          "description": "Engage in back extension workouts."
+        },
+        {
+          "name": "Abdominal Crunches",
+          "description": "Utilize the machine for abdominal crunches."
+        },
+        {
+          "name": "Oblique Twists",
+          "description": "Perform oblique-focused twists."
+        },
+        {
+          "name": "Hyperextensions",
+          "description": "Engage in hyperextension exercises."
+        }
+      ]
+    },
+    {
+      "name": "Chin/Dip Assist",
+      "exercises": [
+        {
+          "name": "Assisted Pull-Ups/Chin-Ups",
+          "description": "Perform assisted pull-ups or chin-ups."
+        },
+        {
+          "name": "Assisted Dips",
+          "description": "Engage in assisted dip exercises."
+        },
+        {
+          "name": "Vertical Knee Raises",
+          "description": "Utilize the machine for vertical knee raises."
+        },
+        {
+          "name": "Tricep Dips",
+          "description": "Perform tricep dip exercises."
+        },
+        {
+          "name": "Leg Raise Assistance",
+          "description": "Assisted leg raise exercises."
+        }
+      ]
+    },
+    {
+      "name": "Incline Chest Press",
+      "exercises": [
+        {
+          "name": "Incline Bench Press",
+          "description": "Perform incline bench press exercises."
+        },
+        {
+          "name": "Chest Flyes",
+          "description": "Engage in chest fly exercises."
+        },
+        {
+          "name": "Upper Chest Isolation",
+          "description": "Utilize the machine for upper chest isolation."
+        },
+        {
+          "name": "Push-Up Assistance",
+          "description": "Assisted push-up exercises."
+        },
+        {
+          "name": "Chest Strengthening",
+          "description": "Work on chest strengthening exercises."
+        }
+      ]
+    },
+    {
+      "name": "Seated Row",
+      "exercises": [
+        {
+          "name": "Seated Rows",
+          "description": "Perform seated row exercises."
+        },
+        {
+          "name": "Low Row",
+          "description": "Engage in low row workouts."
+        },
+        {
+          "name": "One-Arm Rows",
+          "description": "Utilize the machine for one-arm row exercises."
+        },
+        {
+          "name": "Mid-Back Strengthening",
+          "description": "Work on mid-back strengthening exercises."
+        },
+        {
+          "name": "Upper Back Isolation",
+          "description": "Isolation exercises for upper back muscles."
+        }
+      ]
+    },
+    {
+      "name": "Incline Lever Row",
+      "exercises": [
+        {
+          "name": "Incline Lever Rows",
+          "description": "Perform incline lever row exercises."
+        },
+        {
+          "name": "Rowing Movements",
+          "description": "Engage in rowing-style movements."
+        },
+        {
+          "name": "Upper Back Strengthening",
+          "description": "Utilize the machine for upper back strengthening."
+        },
+        {
+          "name": "Back Isolation",
+          "description": "Isolation exercises for back muscles."
+        },
+        {
+          "name": "Leverage Rowing",
+          "description": "Leverage-based rowing exercises."
+        }
+      ]
+    },
+    {
+      "name": "Puzzle Mat",
+      "exercises": [
+        {
+          "name": "Floor Exercises",
+          "description": "Perform various floor exercises on the mat."
+        },
+        {
+          "name": "Yoga and Stretching",
+          "description": "Engage in yoga or stretching routines."
+        },
+        {
+          "name": "Core Workouts",
+          "description": "Utilize the mat for core-focused exercises."
+        },
+        {
+          "name": "Bodyweight Movements",
+          "description": "Perform bodyweight exercises on the mat."
+        },
+        {
+          "name": "Plyometric Drills",
+          "description": "Plyometric exercises on the mat."
+        }
+      ]
+    },
+    {
+      "name": "Barbell Lifter",
+      "exercises": [
+        {
+          "name": "Barbell Exercises",
+          "description": "Perform various exercises using the barbell."
+        },
+        {
+          "name": "Deadlifts",
+          "description": "Engage in deadlift exercises."
+        },
+        {
+          "name": "Barbell Squats",
+          "description": "Utilize the barbell for squat exercises."
+        },
+        {
+          "name": "Barbell Rows",
+          "description": "Perform barbell row exercises."
+        },
+        {
+          "name": "Barbell Press",
+          "description": "Shoulder press exercises using the barbell."
+        }
+      ]
+    }
+  ]
+}
