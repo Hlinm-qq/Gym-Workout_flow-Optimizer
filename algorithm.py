@@ -23,7 +23,7 @@ class Algorithm:
         with open('data/muscle_dict_comple.json', 'r') as file:
             self.jsonData = json.load(file)
 
-    def aStar(self):
+    def method(self):
 
         totalCapacity = list(self.equipmentStatus.number * self.equipmentStatus.capacity)
         possessCapacity = list(totalCapacity - self.equipmentStatus.status)
@@ -136,7 +136,7 @@ if __name__ == '__main__':
     userInput = Algorithm.getTargetMuscleGroup(muscleGroup=None, defaultSet=True)
 
     tomy = Algorithm(userInput)
-    tomy.aStar()
+    tomy.method()
 
 
     
