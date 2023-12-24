@@ -1,18 +1,9 @@
 import random
 import json
 
-"""
-Generate four dicts:
-        1. Waiting list (people who want to use equipments)
-            (1) The number of people waiting.
-            (2) The expected time that the waiting person wants to use the equipment.
-        2. Usage list (people who are using equipments)
-            (1) Real-time status of each piece of gym equipment (the number of available equipments).
-            (2) The expected time each equipment will be in use.
-"""
-
 
 def showMuscleGroup():
+    """Show muscle groups by category."""
     muscle_group = dict()
     translator = dict()
     with open(

@@ -117,7 +117,7 @@ class Algorithm:
 
 
 if __name__ == "__main__":
-    userInput = Algorithm.getTargetMuscleGroup()
+    userInput = Algorithm.getTargetMuscleGroup(muscleGroup=None)
 
     tomy = Algorithm(userInput)
     tomy.method()
