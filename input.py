@@ -54,7 +54,7 @@ def getRandomList(EquipmentDf):
     return (status, usageTime)
 
 
-def getWaitingList(EquipmentDf):
+def getWaitingList(numAvailable, EquipmentDf):
     """Generate 2 dicts:
           1. Waiting list (people who want to use equipments)
               (1) The number of people waiting.
@@ -67,12 +67,25 @@ def getWaitingList(EquipmentDf):
         numWait (dict): The number of people waiting.
         wantToUseTime (dict): The expected time.
     """
-    _, wantToUseTime = getRandomList(EquipmentDf)
     # compute the number of waiting number
-    numWait = dict()
-    for i in range(len(EquipmentDf)):
-        numWait[i] = len(wantToUseTime[i])
-    return numWait, wantToUseTime
+    dset = EquipmentDf.copy()
+    dset = dset.set_index("equipment")
+    status = dict()
+    usageTime = dict()
+    id = 0
+    for name in dset.index:
+        # get equipment status
+        totalCapacity = dset.loc[name]["number"] * dset.loc[name]["capacity"]
+        numWait = random.randint(0, 5) if numAvailable[id] != totalCapacity else 0
+        status[id] = numWait
+        # get expected time
+        if numWait == 0:
+            usageTime[id] = []
+        else:
+            usageTime[id] = random.sample(range(5, 30), numWait)
+        id += 1
+
+    return (status, usageTime)
 
 
 def getUsageList(EquipmentDf):
@@ -88,5 +101,23 @@ def getUsageList(EquipmentDf):
         numAvailabe (dict): The number of available equipments.
         UseTime (dict): The expected time each equipment will be in use.
     """
-    numAvailabe, UseTime = getRandomList(EquipmentDf)
-    return numAvailabe, UseTime
+    dset = EquipmentDf.copy()
+    dset = dset.set_index("equipment")
+    status = dict()
+    usageTime = dict()
+    id = 0
+    for name in dset.index:
+        # get equipment status
+        totalCapacity = dset.loc[name]["number"] * dset.loc[name]["capacity"]
+        numAvailable = random.randint(0, totalCapacity)
+        status[id] = numAvailable
+        # get expected time
+        if numAvailable == totalCapacity:
+            usageTime[id] = []
+        elif numAvailable != 0:
+            usageTime[id] = random.sample(range(5, 30), totalCapacity - numAvailable)
+        else:
+            usageTime[id] = random.sample(range(5, 30), totalCapacity)
+        id += 1
+
+    return (status, usageTime)
