@@ -4,7 +4,6 @@ import queue
 import json
 from heuristic_1 import heuristic
 from itertools import combinations
-from output import get_user_input
 import input
 
 
@@ -22,14 +21,22 @@ class Algorithm:
             self.jsonData = json.load(file)
 
     def method(self):
-        totalCapacity = list(
-            self.equipmentStatus.number * self.equipmentStatus.capacity
-        )
-        possessCapacity = list(totalCapacity - self.equipmentStatus.status)
-        cost = [
-            min(times) if totalCapacity[i] == possessCapacity[i] else 0
-            for i, times in enumerate(self.equipmentStatus.usage_time)
-        ]
+        #totalCapacity = list(
+        #    self.equipmentStatus.number * self.equipmentStatus.capacity
+        #)
+        # possessCapacity = list(totalCapacity - self.equipmentStatus.status)
+
+        cost = []
+        for i in self.equipmentStatus.id:
+            wait = self.equipmentStatus["expected usage time for occupied equipments"][i]
+
+            if self.equipmentStatus["availabel number"][i] == 0:
+                for usage in self.equipmentStatus["expected usage time for waiting people"][i]:
+                    min_index = wait.index(min(wait))
+                    wait[min_index] += usage
+                cost.append(min(wait))
+            else:
+                cost.append(0)
 
         fringe = queue.PriorityQueue()
         visited = []
@@ -42,6 +49,7 @@ class Algorithm:
                 break
 
             neighbors = self.getNeigbors()
+
             for neighbor in neighbors:
                 if neighbor not in visited:
                     visited.append(neighbor)
@@ -104,7 +112,8 @@ class Algorithm:
             tolerance = 30
         else:
             # get target muscle groups and waiting time from web
-            target, tolerance = get_user_input()
+            #target, tolerance = get_user_input()
+            pass
         return (target, tolerance)
 
     def getEquipmentStatus(self, df):
@@ -115,9 +124,14 @@ class Algorithm:
         df["waiting number"] = numWait
         df["expected usage time for waiting people"] = waitTime
 
+    def showdf(self):
+        print(self.equipmentStatus["expected usage time for occupied equipments"])
+        print(self.equipmentStatus["expected usage time for waiting people"])
 
 if __name__ == "__main__":
     userInput = Algorithm.getTargetMuscleGroup(muscleGroup=None)
 
-    tomy = Algorithm(userInput)
-    tomy.method()
+    obj = Algorithm(userInput)
+    # obj.showdf()
+    
+    obj.method()

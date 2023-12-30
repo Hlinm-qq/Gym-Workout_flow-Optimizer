@@ -1,5 +1,6 @@
 import random
 import json
+import pandas as pd
 
 
 def showMuscleGroup():
@@ -76,7 +77,7 @@ def getWaitingList(numAvailable, EquipmentDf):
     for name in dset.index:
         # get equipment status
         totalCapacity = dset.loc[name]["number"] * dset.loc[name]["capacity"]
-        numWait = random.randint(0, 5) if numAvailable[id] != totalCapacity else 0
+        numWait = random.randint(0, 5) if numAvailable[id] == 0 else 0 
         status[id] = numWait
         # get expected time
         if numWait == 0:
@@ -121,3 +122,12 @@ def getUsageList(EquipmentDf):
         id += 1
 
     return (status, usageTime)
+
+if __name__ == '__main__':
+    #showMuscleGroup()
+
+    df = pd.read_csv('data/equipment.csv')
+    #print(getRandomList(df))
+    print(getUsageList(df))
+    
+    
