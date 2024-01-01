@@ -1,32 +1,32 @@
-from algorithm import *
-
+import gradio as gr
+from algorithm import Algorithm
 import pandas as pd
 
+# Function that processes the user input and returns the suggestion
+def get_workout_plan(muscle_group, tolerance):
+    # Load equipment data
+    df = pd.read_csv("data/equipment.csv")
+    # Process the user input
+    userInput = [muscle_group, int(tolerance)]  # Convert tolerance to integer
+    algorithm = Algorithm(userInput)
+    # Run the algorithm and get the result
+    result, cost = algorithm.method()
+    # Handle the output of the algorithm
+    if result is None:
+        return "No suitable workout plan found."
+    return f"Suggested workout plan for: {muscle_group} with cost: {cost}"
 
-df = pd.read_csv("equipment.csv")
-print(df.head())
+# Create Gradio interface
+interface = gr.Interface(
+    fn=get_workout_plan,
+    inputs=[
+        gr.Textbox(lines=2, placeholder="Enter muscle group here..."),
+        gr.Dropdown(choices=[0, 10, 20, 30], label="Tolerance (minutes)")
+    ],
+    outputs="text",
+    title="Workout Optimizer",
+    description="Enter the muscle group you want to focus on and select your wait tolerance to get a workout plan."
+)
 
-equipList = df['equipment']
-equipNumList = df['number']
-
-# catch/hardcode muscle part each equipment is for
-# e.g. 
-#     {
-#         treadmill: leg, ...
-#         rowing machine: ...
-#     }
-
-userIn = input("what do you want to train on ?")
-
-def processUserInput(userIn):
-    """
-        return equipment list that applies with user need
-    """
-    pass
-
-def getSuggestion():
-    """
-        return the suggestion of algorithm
-    """
-    equipmentList = processUserInput(userIn)
-
+if __name__ == "__main__":
+    interface.launch()
