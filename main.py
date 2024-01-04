@@ -1,6 +1,7 @@
 import gradio as gr
-from algorithm import Algorithm
 import pandas as pd
+from algorithm import Algorithm
+from suggest import getExerSuggestion
 
 # Function that processes the user input and returns the suggestion
 def get_workout_plan(muscle_group, tolerance):
@@ -11,10 +12,13 @@ def get_workout_plan(muscle_group, tolerance):
     algorithm = Algorithm(userInput)
     # Run the algorithm and get the result
     result, cost = algorithm.method()
+    if result:
+        exerciseSuggest = getExerSuggestion(result)
     # Handle the output of the algorithm
     if result is None:
         return "No suitable workout plan found."
-    return f"Suggested workout plan for: {muscle_group} with cost: {cost}"
+    output1 = f"Suggested workout plan for: {muscle_group} with cost: {cost}"
+    return output1
 
 # Create Gradio interface
 interface = gr.Interface(

@@ -191,7 +191,7 @@ class Algorithm:
     def getEquipmentStatus(self, df):
         numAvailable, useTime = input.getUsageList(df)
         numWait, waitTime = input.getWaitingList(numAvailable, df)
-        df["availabel number"] = numAvailable
+        df["available number"] = numAvailable
         df["expected usage time for occupied equipments"] = useTime
         df["waiting number"] = numWait
         df["expected usage time for waiting people"] = waitTime
