@@ -28,6 +28,7 @@ class Algorithm:
             cost - wait time or infinity if the equipment doesn't train the target muscle 
             heuristic - the more trained muscle in target, the less heuristic
         '''
+        results = []
         cost = []
         for i in self.equipmentStatus.id:
             wait = self.equipmentStatus["expected usage time for occupied equipments"][i]
@@ -35,7 +36,7 @@ class Algorithm:
             # cost[equipment] = wait time or inf if the equipment doesn't train the target muscle  
             if not self.targetEquip(i):
                 cost.append(infinity)
-            elif self.equipmentStatus["availabel number"][i] == 0:
+            elif self.equipmentStatus["available number"][i] == 0:
                 for usage in self.equipmentStatus["expected usage time for waiting people"][i]:
                     min_index = wait.index(min(wait))
                     wait[min_index] += usage
@@ -71,8 +72,15 @@ class Algorithm:
         ]
 
         for i in indices:
-            print(self.equipmentStatus.equipment[i], end='')
-            print(f' - wait for {cost[i]} minutes...')
+            equipment_name = self.equipmentStatus.equipment[i]
+            wait_time = cost[i]
+            results.append((equipment_name, wait_time))
+
+        # Calculate the total cost if needed
+        total_cost = sum(wait_time for _, wait_time in results)
+
+        # Return the results and the total cost
+        return results, total_cost
 
     def heuristic(self, neighbor):
         indices = [
@@ -191,7 +199,7 @@ class Algorithm:
     def getEquipmentStatus(self, df):
         numAvailable, useTime = input.getUsageList(df)
         numWait, waitTime = input.getWaitingList(numAvailable, df)
-        df["availabel number"] = numAvailable
+        df["available number"] = numAvailable
         df["expected usage time for occupied equipments"] = useTime
         df["waiting number"] = numWait
         df["expected usage time for waiting people"] = waitTime

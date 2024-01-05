@@ -1,75 +1,82 @@
 import gradio as gr
-from algorithm import Algorithm
 import pandas as pd
+from algorithm import Algorithm
 
-# Detailed Muscle Groups
 muscle_groups = {
     "Leg Muscles": [
         "Quadriceps (Rectus Femoris, Vastus Lateralis, Vastus Medialis, Vastus Intermedius)",
         "Hamstrings (Biceps Femoris, Semitendinosus, Semimembranosus)",
         "Gastrocnemius", "Soleus", "Adductor Magnus", "Tibialis Anterior",
-        "Popliteus", "Peroneals (Peroneus Longus, Peroneus Brevis, Peroneus Tertius)",
-        "Flexor Hallucis Longus", "Flexor Digitorum Longus",
-        "Extensor Hallucis Longus", "Extensor Digitorum Longus"
+        "Popliteus", "Calves (Gastrocnemius and Soleus)", "Hip Adductors",
+        "Hip Abductors", "Hip Flexors", "Peroneals", "Gracilis"
     ],
-    "Hip and Gluteal Muscles": [
-        "Gluteus Maximus", "Gluteus Medius", "Gluteus Minimus",
-        "Tensor Fasciae Latae", "Iliopsoas", "Sartorius", "Gracilis"
+    "Gluteal Muscles": [
+        "Gluteus Maximus", "Gluteus Medius", "Gluteus Minimus", "Tensor Fasciae Latae"
     ],
     "Back Muscles": [
-        "Erector Spinae", "Latissimus Dorsi", "Trapezius",
-        "Rhomboids", "Levator Scapulae", "Quadratus Lumborum"
+        "Erector Spinae", "Latissimus Dorsi", "Trapezius", "Rhomboids",
+        "Levator Scapulae", "Serratus Anterior (Upper side of ribs)", "Quadratus Lumborum"
     ],
     "Abdominal Muscles": [
-        "Rectus Abdominis", "Obliques (External, Internal)",
+        "Rectus Abdominis", "External Obliques", "Internal Obliques",
         "Transverse Abdominis", "Internal and External Intercostals"
     ],
     "Arm Muscles": [
-        "Biceps Brachii", "Triceps Brachii", "Brachialis",
-        "Brachioradialis", "Anconeus", "Forearm muscles (Flexors and Extensors)"
+        "Biceps Brachii", "Triceps Brachii (Back of upper arm)", "Brachialis",
+        "Brachioradialis", "Forearm muscles (Flexors and Extensors)", "Anconeus"
     ],
     "Shoulder Muscles": [
-        "Deltoids (Anterior, Lateral, and Posterior)",
-        "Supraspinatus", "Infraspinatus", "Subscapularis",
-        "Teres Major", "Teres Minor"
+        "Deltoids (Anterior, Lateral, and Posterior)", "Supraspinatus",
+        "Infraspinatus", "Subscapularis", "Teres Major", "Teres Minor",
+        "Posterior Deltoid", "Pectoralis Major (Clavicular Head)",
+        "Pectoralis Major (Sternal Head)", "Pectoralis Minor"
     ],
     "Chest Muscles": [
-        "Pectoralis Major", "Pectoralis Minor", "Serratus Anterior"
+        "Pectoralis Major", "Pectoralis Minor"
     ]
-    # Add more muscle groups as needed
 }
-# Function to process the user input and return the suggested equipment
-def get_workout_plan(specific_muscles, tolerance):
-    # Placeholder for your algorithm's logic
-    selected_equipment = Algorithm(specific_muscles, tolerance).method()
 
-    if selected_equipment is None:
-        return "No suitable equipment found."
-    return f"Suggested equipment for muscles: {', '.join(specific_muscles)} with a tolerance of {tolerance} minutes: {selected_equipment}"
 
-def update_specific_muscles(muscle_category):
-    # Get the specific muscles based on the selected category
-    return muscle_groups.get(muscle_category, [])
+def get_workout_plan(*args):
+    # The last argument is tolerance, and the rest are selected muscle groups
+    selected_muscles = [muscle for group in args[:-1] for muscle in group]
+    tolerance = args[-1]
 
-with gr.Blocks() as app:
-    gr.Markdown("## Workout Optimizer")
-    gr.Markdown("Select specific muscles you want to focus on and enter your wait tolerance to get a suggested equipment.")
-
-    with gr.Row():
-        muscle_category = gr.Dropdown(list(muscle_groups.keys()), label="Select Muscle Group Category")
-        tolerance = gr.Number(label="Tolerance (minutes)", value=30, step=1)
-
-    specific_muscles = gr.CheckboxGroup(label="Select Specific Muscles")
+    # Load equipment data
+    df = pd.read_csv("data/equipment.csv")
     
-    # Update the specific muscles based on the selected muscle group category
-    muscle_category.change(update_specific_muscles, inputs=muscle_category, outputs=specific_muscles)
+    # User input is already a list of selected muscle groups
+    userInput = [selected_muscles, int(tolerance)]
+    algorithm = Algorithm(userInput)
+    
+    # Run the algorithm and get the result
+    result, cost = algorithm.method()
+    
+    # Handle the output of the algorithm
+    if not result:
+        return "No suitable workout plan found."
+    
+    output_string=""
+    # output_string += "Suggested workout plan for: " + ', '.join(selected_muscles) + "\n"
+    # output_string += "Total cost: " + str(cost) + " minutes\n\n"
+    output_string += "Workout Plan:\n"
+    for equipment, wait_time in result:
+        output_string += f"{equipment} - wait for {wait_time} minutes\n"
+    
+    return output_string
 
-    output = gr.Textbox(label="Suggested Equipment")
 
-    gr.Button("Get Suggested Equipment").click(
-        fn=get_workout_plan,
-        inputs=[specific_muscles, tolerance],
-        outputs=output
-    )
+# Create Gradio interface without collapsible sections
+inputs = [gr.CheckboxGroup(choices=choices, label=label) for label, choices in muscle_groups.items()]
+inputs.append(gr.Dropdown(choices=[0, 10, 20, 30], label="Tolerance (minutes)"))
 
-app.launch()
+interface = gr.Interface(
+    fn=get_workout_plan,
+    inputs=inputs,
+    outputs="text",
+    title="Workout Optimizer",
+    description="Select muscle groups from each category and your wait tolerance to get a workout plan."
+)
+
+if __name__ == "__main__":
+    interface.launch()
