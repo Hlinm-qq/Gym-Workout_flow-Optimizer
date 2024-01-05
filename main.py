@@ -1,6 +1,7 @@
 import gradio as gr
 import pandas as pd
 from algorithm import Algorithm
+from suggest import getSuggestion
 
 muscle_groups = {
     "Leg Muscles": [
@@ -36,7 +37,6 @@ muscle_groups = {
     ]
 }
 
-
 def get_workout_plan(*args):
     # The last argument is tolerance, and the rest are selected muscle groups
     selected_muscles = [muscle for group in args[:-1] for muscle in group]
@@ -62,6 +62,10 @@ def get_workout_plan(*args):
     output_string += "Workout Plan:\n"
     for equipment, wait_time in result:
         output_string += f"{equipment} - wait for {wait_time} minutes\n"
+        combined, totalTime = getSuggestion([equipment])
+        output_string += f'      around {totalTime} minutes workouts\n'
+        for exercise in combined:
+            output_string += '        - ' + exercise
     
     return output_string
 

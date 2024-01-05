@@ -41,6 +41,7 @@ HARD = 2
 def getExerSuggestion(equipments, filePath=FILENAME):
   # dummy as index
   df_dummy = pd.read_csv(filePath)['unitName'].values.tolist()
+  df_dummy = [x.lower() for x in df_dummy]
 
   # read file
   df_exer = pd.read_csv(filePath)
@@ -157,39 +158,47 @@ def suggestExerCount(exers, properties, minute=EASY):
 
   return output
 
-equipmentList = ['Leg Press and Hack Squat Machine', 'Leg Curl', 'Rotary Torso']
-allEquipExer = getExerSuggestion(equipmentList)
+def getSuggestion(equipmentList):
+  allEquipExer = getExerSuggestion(equipmentList)
 
-for equipment in allEquipExer:
-  equipExer = allEquipExer[equipment]
+  for equipment in allEquipExer:
+    equipExer = allEquipExer[equipment]
 
-  totalTime = 0
-  top = []
-  easy = []
-  medium = []
-  hard = []
+    totalTime = 0
+    top = []
+    easy = []
+    medium = []
+    hard = []
 
-  if len(equipExer["topExer"][0]):
-    pass
-  
-  if len(equipExer["easyExer"][0]):
-    totalTime += EASY*len(equipExer["easyExer"][0])
-    for i in range(len(equipExer["easyExer"][0])):
-      easy.append(f'{equipExer["easyExer"][0][i]} {equipExer["easyExer"][2][i]}')
+    if len(equipExer["topExer"][0]):
+      pass
+    
+    if len(equipExer["easyExer"][0]):
+      totalTime += EASY*len(equipExer["easyExer"][0])
+      for i in range(len(equipExer["easyExer"][0])):
+        easy.append(f'{equipExer["easyExer"][0][i]} {equipExer["easyExer"][2][i]}\n')
 
-  if len(equipExer["mediumExer"][0]):
-    totalTime += MEDIUM*len(equipExer["mediumExer"][0])
-    for i in range(len(equipExer["mediumExer"][0])):
-      medium.append(f'{equipExer["mediumExer"][0][i]} {equipExer["mediumExer"][2][i]}')
+    if len(equipExer["mediumExer"][0]):
+      totalTime += MEDIUM*len(equipExer["mediumExer"][0])
+      for i in range(len(equipExer["mediumExer"][0])):
+        medium.append(f'{equipExer["mediumExer"][0][i]} {equipExer["mediumExer"][2][i]}\n')
 
-  if len(equipExer["hardExer"][0]):
-    totalTime += HARD*len(equipExer["hardExer"][0])
-    for i in range(len(equipExer["hardExer"][0])):
-      hard.append(f'{equipExer["hardExer"][0][i]} {equipExer["hardExer"][2][i]}')
+    if len(equipExer["hardExer"][0]):
+      totalTime += HARD*len(equipExer["hardExer"][0])
+      for i in range(len(equipExer["hardExer"][0])):
+        hard.append(f'{equipExer["hardExer"][0][i]} {equipExer["hardExer"][2][i]}\n')
 
-  print(f'{equipment} for <{totalTime} minutes')
-  # print(f'topExer: {", ".join(equipExer["topExer"])}')
-  print(f'easy: {", ".join(easy)}')
-  print(f'medium: {", ".join(medium)}')
-  print(f'hard: {", ".join(hard)}')
-  print()
+    combined = easy + medium + hard
+
+    # print(f'{equipment} for <{totalTime} minutes')
+    # # print(f'topExer: {", ".join(equipExer["topExer"])}')
+    # print(f'easy: {", ".join(easy)}')
+    # print(f'medium: {", ".join(medium)}')
+    # print(f'hard: {", ".join(hard)}')
+    # print()
+
+    return combined, totalTime
+
+# equipmentList = ['Leg Press and Hack Squat Machine'.lower()]
+# combined, totalTime = getSuggestion(equipmentList)
+# print(combined, totalTime)
