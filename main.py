@@ -59,13 +59,14 @@ def get_workout_plan(*args):
     output_string=""
     # output_string += "Suggested workout plan for: " + ', '.join(selected_muscles) + "\n"
     # output_string += "Total cost: " + str(cost) + " minutes\n\n"
-    output_string += "Workout Plan:\n"
+    output_string += "Workout Plan:\n\n"
     for equipment, wait_time in result:
         output_string += f"{equipment} - wait for {wait_time} minutes\n"
         combined, totalTime = getSuggestion([equipment])
         output_string += f'      around {totalTime} minutes workouts\n'
         for exercise in combined:
             output_string += '        - ' + exercise
+        output_string += '\n'
     
     return output_string
 
