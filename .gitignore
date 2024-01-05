@@ -4,3 +4,5 @@ output.txt
 algorithm_test.py
 muscle.txt
 __pycache__/
+.vscode/
+flagged/

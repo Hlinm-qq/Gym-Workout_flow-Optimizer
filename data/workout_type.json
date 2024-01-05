@@ -801,7 +801,7 @@
       ]
     },
     {
-      "name": "Precor Multi Gym S3.45 - Upper Body",
+      "name": "precor multu gym s3.45-upper body - Upper Body",
       "exercises": [
         {
           "exer_name": "Chest Press",
@@ -826,7 +826,7 @@
       ]
     },
     {
-      "name": "Precor Multi Gym S3.45 - Lower Body",
+      "name": "precor multu gym s3.45-lower body",
       "exercises": [
         {
           "exer_name": "Leg Press",
@@ -851,7 +851,7 @@
       ]
     },
     {
-      "name": "Precor Multi Gym S3.45 - Back and Core",
+      "name": "precor multu gym s3.45-back and core",
       "exercises": [
         {
           "exer_name": "Seated Rows",
