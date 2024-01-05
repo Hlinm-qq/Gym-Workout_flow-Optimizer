@@ -1,74 +1,91 @@
 import gradio as gr
 import pandas as pd
+import json
 from algorithm import Algorithm
 from suggest import getSuggestion
-import base64
 
 muscle_groups = {
-    "Leg Muscles": [
-        "Quadriceps (Rectus Femoris, Vastus Lateralis, Vastus Medialis, Vastus Intermedius)",
-        "Hamstrings (Biceps Femoris, Semitendinosus, Semimembranosus)",
-        "Gastrocnemius",
-        "Soleus",
-        "Adductor Magnus",
-        "Tibialis Anterior",
-        "Popliteus",
-        "Calves (Gastrocnemius and Soleus)",
-        "Hip Adductors",
-        "Hip Abductors",
-        "Hip Flexors",
-        "Peroneals",
-        "Gracilis",
+    "腿": [
+        "內收肌短肌",
+        "內收肌",
+        "腹股沉肌",
+        "股二頭肌",
+        "小腿肌肉",
+        "小腿肌肉 (腓腸肌和腓腸後肌)",
+        "脛骨長趾伸肌",
+        "長趾伸肌",
+        "足長屈肌",
+        "屈長跗肌",
+        "腓腓肌",
+        "腓腸肌 (外側頭)",
+        "腓腸肌（內側）",
+        "臀大肌",
+        "中殿肌",
+        "臀小肌",
+        "長肌",
+        "腿後肌群",
+        "臀部外展肌",
+        "髖內收肌",
+        "髖屈肌",
+        "髂腰肌",
+        "腓腸肌",
+        "腓骨短肌",
+        "腓骨長肌",
+        "外踝肌",
+        "腓骨筋",
+        "膝半腱肌",
+        "股四頭肌 (直肌、外側肌、內側肌、中間肌)",
+        "直肌",
+        "縫匠肌",
+        "薄膜半腱肌",
+        "半腱肌",
+        "比目魚肌",
+        "湧泉肌",
+        "脛骨前肌",
+        "廣隔肌",
+        "外側廣闊肌",
+        "內側肌",
     ],
-    "Gluteal Muscles": [
-        "Gluteus Maximus",
-        "Gluteus Medius",
-        "Gluteus Minimus",
-        "Tensor Fasciae Latae",
+    "手臂": [
+        "肘肌",
+        "肱二頭肌",
+        "上臂三頭肌",
+        "肱桡肌",
+        "肩胛肌",
+        "前臂肌肉 (屈肌和伸肌)",
+        "三頭肌（上臂後方）",
+        "肱三頭肌（長頭）",
     ],
-    "Back Muscles": [
-        "Erector Spinae",
-        "Latissimus Dorsi",
-        "Trapezius",
-        "Rhomboids",
-        "Levator Scapulae",
-        "Serratus Anterior (Upper side of ribs)",
-        "Quadratus Lumborum",
+    "肩部": ["前三角肌", "三角肌（前束、外束、後束）", "棘下肌", "中於肌", "後三角肌", "肩胛下肌", "超肩胛肌", "肩小圓肌"],
+    "背肌": [
+        "脊柱舉起肌",
+        "脊柱起肌 (脊肌)",
+        "背闊肌",
+        "舉肩肌",
+        "腰背肌 (起立脊肌)",
+        "中、下斜方肌",
+        "腰方肌",
+        "菱形肌大肌",
+        "斜方肌小束",
+        "菱形肌",
+        "肩胛小肌",
+        "斜方肌",
+        "伸肩肌下束",
+        "斜方肌 (中部和下部纖維)",
     ],
-    "Abdominal Muscles": [
-        "Rectus Abdominis",
-        "External Obliques",
-        "Internal Obliques",
-        "Transverse Abdominis",
-        "Internal and External Intercostals",
-    ],
-    "Arm Muscles": [
-        "Biceps Brachii",
-        "Triceps Brachii (Back of upper arm)",
-        "Brachialis",
-        "Brachioradialis",
-        "Forearm muscles (Flexors and Extensors)",
-        "Anconeus",
-    ],
-    "Shoulder Muscles": [
-        "Deltoids (Anterior, Lateral, and Posterior)",
-        "Supraspinatus",
-        "Infraspinatus",
-        "Subscapularis",
-        "Teres Major",
-        "Teres Minor",
-        "Posterior Deltoid",
-        "Pectoralis Major (Clavicular Head)",
-        "Pectoralis Major (Sternal Head)",
-        "Pectoralis Minor",
-    ],
-    "Chest Muscles": ["Pectoralis Major", "Pectoralis Minor"],
+    "腹肌": ["外腹斜肌", "內斜方肌", "肋間內外肌", "內外斜肌", "腹斜肌", "腹直肌", "橫腹肌"],
+    "胸肌": ["胸大肌", "胸大肌(鎖骨頭部)", "胸大肌 (胸骨部分)", "腋窩肌", "前鋸肌"],
 }
 
 
 def get_workout_plan(*args):
+    # Translate the muscle groups into Chinese
+    trans_dict = {}
+    with open("data/translate_C2E_dict.json", "r") as f:
+        trans_dict = json.load(f)
+
     # The last argument is tolerance, and the rest are selected muscle groups
-    selected_muscles = [muscle for group in args[:-1] for muscle in group]
+    selected_muscles = [trans_dict[muscle] for group in args[:-1] for muscle in group]
     tolerance = args[-1]
 
     # Load equipment data

@@ -4,9 +4,10 @@ import queue
 import json
 from heuristic_1 import heuristic
 from itertools import combinations
-import input
+import CustomInput
 
 infinity = 9999999
+
 
 class Algorithm:
     def __init__(self, userInput):
@@ -23,27 +24,31 @@ class Algorithm:
             self.jsonData = json.load(file)
 
     def method(self):
-        '''
-            state space - all possible equipment combinations
-            cost - wait time or infinity if the equipment doesn't train the target muscle 
-            heuristic - the more trained muscle in target, the less heuristic
-        '''
+        """
+        state space - all possible equipment combinations
+        cost - wait time or infinity if the equipment doesn't train the target muscle
+        heuristic - the more trained muscle in target, the less heuristic
+        """
         results = []
         cost = []
         for i in self.equipmentStatus.id:
-            wait = self.equipmentStatus["expected usage time for occupied equipments"][i]
+            wait = self.equipmentStatus["expected usage time for occupied equipments"][
+                i
+            ]
 
-            # cost[equipment] = wait time or inf if the equipment doesn't train the target muscle  
+            # cost[equipment] = wait time or inf if the equipment doesn't train the target muscle
             if not self.targetEquip(i):
                 cost.append(infinity)
             elif self.equipmentStatus["available number"][i] == 0:
-                for usage in self.equipmentStatus["expected usage time for waiting people"][i]:
+                for usage in self.equipmentStatus[
+                    "expected usage time for waiting people"
+                ][i]:
                     min_index = wait.index(min(wait))
                     wait[min_index] += usage
                 cost.append(min(wait))
             else:
                 cost.append(0)
-            
+
         fringe = queue.PriorityQueue()
         visited = []
 
@@ -64,7 +69,7 @@ class Algorithm:
                         cost[list(self.equipmentStatus.equipment).index(equip)]
                         for equip in neighbor
                     )
-                    
+
                     pathCost += self.heuristic(neighbor)
                     fringe.put((pathCost, neighbor))
             if len(visited) > 3000:
@@ -95,32 +100,32 @@ class Algorithm:
         ]
 
         base = len(self.target)
-        
+
         for muscle in self.target:
             find = False
             for i in indices:
                 if muscle in self.jsonData[str(i)]:
                     find = True
-            
+
             if find == True:
                 base -= 1
         return base
-    
+
     def targetEquip(self, equip):
-        '''
-            see whether the equipment trained target muscle
-        '''
+        """
+        see whether the equipment trained target muscle
+        """
         find = False
         for muscle in self.target:
             if muscle in self.jsonData[str(equip)]:
                 find = True
-        
+
         return find
 
     def isGoal(self):
-        '''
-            see whether the current equipments satisfied target muscle group
-        '''
+        """
+        see whether the current equipments satisfied target muscle group
+        """
         indices = [
             list(self.equipmentStatus.equipment).index(equip) for equip in self.state
         ]
@@ -134,28 +139,25 @@ class Algorithm:
                 return False
 
         return True
-    
 
     def alreadyTrained(self, l, equip):
-        '''
-            see if muscle trained by equip if already trained in l
-            *only consider muscle in self.target
-        '''
+        """
+        see if muscle trained by equip if already trained in l
+        *only consider muscle in self.target
+        """
         equipIndex = list(self.equipmentStatus.equipment).index(equip)
-        indices = [
-            list(self.equipmentStatus.equipment).index(equip) for equip in l
-        ]
+        indices = [list(self.equipmentStatus.equipment).index(equip) for equip in l]
 
         for muscle in self.target:
             already = False
-            
+
             for i in indices:
                 if muscle in self.jsonData[str(i)]:
                     already = True
 
             if not already and muscle in self.jsonData[str(equipIndex)]:
-                return False 
-        
+                return False
+
         return True
 
     def getNeigbors(self):
@@ -166,18 +168,17 @@ class Algorithm:
         else:
             neighbors = []
             for equip in self.equipmentStatus.equipment:
-                tmp = self.state[: length - 1] 
+                tmp = self.state[: length - 1]
 
                 if not self.alreadyTrained(tmp, equip):
                     neighbors.append(sorted(tmp + [equip]))
 
-                tmp = self.state[: length] 
+                tmp = self.state[:length]
 
                 if not self.alreadyTrained(tmp, equip):
                     neighbors.append(sorted(tmp + [equip]))
-            
+
             return neighbors
-            
 
     def getTargetMuscleGroup(muscleGroup, defaultSet=True):
         """The specific muscle group the user intends to train.
@@ -199,13 +200,13 @@ class Algorithm:
             tolerance = 30
         else:
             # get target muscle groups and waiting time from web
-            #target, tolerance = get_user_input()
+            # target, tolerance = get_user_input()
             pass
         return (target, tolerance)
 
     def getEquipmentStatus(self, df):
-        numAvailable, useTime = input.getUsageList(df)
-        numWait, waitTime = input.getWaitingList(numAvailable, df)
+        numAvailable, useTime = CustomInput.getUsageList(df)
+        numWait, waitTime = CustomInput.getWaitingList(numAvailable, df)
         df["available number"] = numAvailable
         df["expected usage time for occupied equipments"] = useTime
         df["waiting number"] = numWait
@@ -215,10 +216,11 @@ class Algorithm:
         print(self.equipmentStatus["expected usage time for occupied equipments"])
         print(self.equipmentStatus["expected usage time for waiting people"])
 
+
 if __name__ == "__main__":
     userInput = Algorithm.getTargetMuscleGroup(muscleGroup=None)
 
     obj = Algorithm(userInput)
     # obj.showdf()
-    
+
     obj.method()
