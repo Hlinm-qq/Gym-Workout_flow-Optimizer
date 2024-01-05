@@ -1,9 +1,6 @@
 import pandas as pd
-import numpy as np
 import queue
 import json
-from heuristic_1 import heuristic
-from itertools import combinations
 import CustomInput
 
 infinity = 9999999
