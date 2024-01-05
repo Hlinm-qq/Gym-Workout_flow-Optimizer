@@ -117,7 +117,7 @@ def get_workout_plan(*args):
         # Read the local image file
         image_name = equipment.replace("\\", "_")
         # print(image_name)
-        image_html += f"<img src='file/images/{image_name}.webp' style='max-width:300px; max-height:300px;'>"
+        image_html += f"<img src='file/images/{image_name}.webp' style='background-color:white; width:300px; max-height:300px;'>"
 
     return [output_string, image_html]
 
