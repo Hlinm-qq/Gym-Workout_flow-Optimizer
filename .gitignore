@@ -3,3 +3,4 @@ output.bat
 output.txt
 algorithm_test.py
 muscle.txt
+__pycache__/

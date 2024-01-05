@@ -47,6 +47,7 @@ class Algorithm:
         fringe = queue.PriorityQueue()
         visited = []
 
+        timeLim = 0
         while True:
             if not fringe.empty():
                 _, self.state = fringe.get()
@@ -66,6 +67,8 @@ class Algorithm:
                     
                     pathCost += self.heuristic(neighbor)
                     fringe.put((pathCost, neighbor))
+            if len(visited) > 3000:
+                timeLim = 1
 
         indices = [
             list(self.equipmentStatus.equipment).index(equip) for equip in self.state
@@ -75,6 +78,10 @@ class Algorithm:
             equipment_name = self.equipmentStatus.equipment[i]
             wait_time = cost[i]
             results.append((equipment_name, wait_time))
+
+        if timeLim:
+            print("Sorry for waiting, here is the recommended equipments.")
+        print(results)
 
         # Calculate the total cost if needed
         total_cost = sum(wait_time for _, wait_time in results)
@@ -103,8 +110,8 @@ class Algorithm:
         '''
             see whether the equipment trained target muscle
         '''
+        find = False
         for muscle in self.target:
-            find = False
             if muscle in self.jsonData[str(equip)]:
                 find = True
         
