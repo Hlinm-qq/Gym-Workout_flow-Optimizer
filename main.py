@@ -40,11 +40,15 @@ def get_workout_plan(*args):
     image_html = ""
     for equipment, wait_time in result:
         output_string += f"{equipment} - wait for {wait_time} minutes\n"
-        combined, totalTime = getSuggestion([equipment])
-        output_string += f"      around {totalTime} minutes workouts\n"
-        for exercise in combined:
-            output_string += "        - " + exercise
+
+        # no special exercise suggestion if equipment is treadmill
+        if equipment != 'treadmill':
+            combined, totalTime = getSuggestion([equipment])
+            output_string += f"      around {totalTime} minutes workouts\n"
+            for exercise in combined:
+                output_string += "        - " + exercise
         output_string += "\n"
+
         # Read the local image file
         image_name = equipment.replace("\\", "_")
         # print(image_name)
