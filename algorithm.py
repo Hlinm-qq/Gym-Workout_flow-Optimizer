@@ -71,6 +71,7 @@ class Algorithm:
                     fringe.put((pathCost, neighbor))
             if len(visited) > 3000:
                 timeLim = 1
+                break
 
         indices = [
             list(self.equipmentStatus.equipment).index(equip) for equip in self.state
