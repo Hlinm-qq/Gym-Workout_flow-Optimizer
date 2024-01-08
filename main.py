@@ -102,7 +102,16 @@ def get_workout_plan(*args):
         # Read the local image file
         image_name = equipment.replace("\\", "_")
         # print(image_name)
-        image_html += f"<img src='file/images/{image_name}.webp' style='background-color:white; width:300px; max-height:300px;'>"
+        # image_html += f"<img src='file/images/{image_name}.webp' style='background-color:white; width:300px; max-height:300px;'>"
+        str1 = f'<div style="position: relative; display: inline-block; overflow: hidden;">'
+        str2 = f"<img src='file/images/{image_name}.webp' style='background-color:white; width:300px; max-height:300px;'>"
+        str3 = f'<div style="position: absolute; top: 50%; left: 50%; width: 300px; height: 300px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; transform: translate(-50%, -50%); z-index: -10; box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.7);"></div>'
+        image_html += str1 + str2 + str3 + "</div>"
+        # <div style="position: relative; display: inline-block; overflow: hidden;">
+        #     <img src='file/images/{image_name}.webp' style='background-color:white; width:300px; max-height:300px;'>
+        #     <div style="position: absolute; top: 50%; left: 50%; width: 300px; height: 300px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; transform: translate(-50%, -50%); z-index: 1; box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.7);"></div>
+        # </div>
+
 
     # Get info of all match equipment
     # match_equipment_list = list_target_related_equip(selected_muscles, algorithm)
