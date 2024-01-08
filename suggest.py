@@ -6,9 +6,9 @@ from math import floor, ceil
 # from algorithm import Algorithm
 
 FILENAME = "data/workout_type.csv"
-EASY = 4
-MEDIUM = 3
-HARD = 2
+EASY = 5
+MEDIUM = 4
+HARD = 3
 
 # allUnitList = []
 
@@ -240,6 +240,6 @@ def getSuggestion(equipmentList):
         return combined, totalTime
 
 
-# equipmentList = ['Leg Press and Hack Squat Machine'.lower()]
+# equipmentList = ['functional trainer'.lower()]
 # combined, totalTime = getSuggestion(equipmentList)
 # print(combined, totalTime)
