@@ -12,7 +12,7 @@ with open("data/category_cn.json", "r", encoding='utf-8') as f:
 
 def list_target_related_equip(selected_muscles, algorithm):
     translator = {}
-    with open("data/translate_E2C_dict.json") as f:
+    with open("data/translate_E2C_dict.json", "r", encoding='utf-8') as f:
         translator = json.load(f)
     df = algorithm.equipmentStatus.copy()
 
