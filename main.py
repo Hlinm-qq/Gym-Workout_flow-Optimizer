@@ -105,8 +105,8 @@ def get_workout_plan(*args):
         image_html += f"<img src='file/images/{image_name}.webp' style='background-color:white; width:300px; max-height:300px;'>"
 
     # Get info of all match equipment
-    match_equipment_list = list_target_related_equip(selected_muscles, algorithm)
-    return [output_string, image_html, match_equipment_list]
+    # match_equipment_list = list_target_related_equip(selected_muscles, algorithm)
+    return [output_string, image_html]
 
 
 # Create Gradio interface without collapsible sections
@@ -119,7 +119,7 @@ inputs.append(gr.Dropdown(choices=[0, 10, 20, 30], label="Tolerance (minutes)"))
 interface = gr.Interface(
     fn=get_workout_plan,
     inputs=inputs,
-    outputs=["text", "html", gr.DataFrame()],
+    outputs=["text", "html"],
     title="Workout Optimizer",
     description="Select muscle groups from each category and your wait tolerance to get a workout plan.",
 )
