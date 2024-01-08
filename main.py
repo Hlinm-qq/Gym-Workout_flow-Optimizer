@@ -5,14 +5,14 @@ from algorithm import Algorithm
 from suggest import getSuggestion
 
 muscle_groups = {}
-with open("data/category_cn.json", "r") as f:
+with open("data/category_cn.json", "r", encoding='utf-8') as f:
     muscle_groups = json.load(f)
 
 
 def get_workout_plan(*args):
     # Translate the muscle groups into Chinese
     trans_dict = {}
-    with open("data/translate_C2E_dict.json", "r") as f:
+    with open("data/translate_C2E_dict.json", "r", encoding='utf-8') as f:
         trans_dict = json.load(f)
 
     # The last argument is tolerance, and the rest are selected muscle groups
