@@ -1,7 +1,7 @@
 import pandas as pd
 import queue
 import json
-import CustomInput
+import customInput
 
 infinity = 9999999
 
@@ -203,8 +203,8 @@ class Algorithm:
         return (target, tolerance)
 
     def getEquipmentStatus(self, df):
-        numAvailable, useTime = CustomInput.getUsageList(df)
-        numWait, waitTime = CustomInput.getWaitingList(numAvailable, df)
+        numAvailable, useTime = customInput.getUsageList(df)
+        numWait, waitTime = customInput.getWaitingList(numAvailable, df)
         df["available number"] = numAvailable
         df["expected usage time for occupied equipments"] = useTime
         df["waiting number"] = numWait
